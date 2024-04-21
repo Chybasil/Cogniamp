@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogniMap</title>
+</head>
+<body>
+    <h1>Welcome to CogniMap</h1>
+
+    <div id="imageContainer">
+        <img id="recognizedImage" src="#" alt="Recognized Image">
+    </div>
+
+    <div id="resultsContainer">
+        <!-- Placeholder for displaying the results from image recognition and MongoDB query -->
+        <p id="predictionResults"></p>
+        <p id="databaseQueryResult"></p>
+    </div>
+
+    <!-- Include any JavaScript code here -->
+    <script>
+        // Fetch image recognition results and MongoDB query results from backend
+        fetch('Cognimap.php', {
+            method: 'POST',
+            body: JSON.stringify({ image_url: 'URL_OF_YOUR_IMAGE' }),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Update HTML elements with results
+            document.getElementById('predictionResults').innerText = 'Prediction Results: ' + JSON.stringify(data.prediction_results);
+            document.getElementById('databaseQueryResult').innerText = 'Database Query Result: ' + (data.is_image_in_database ? 'Image exists in database' : 'Image does not exist in database');
+            document.getElementById('recognizedImage').src = 'URL_OF_YOUR_IMAGE'; // Replace with URL of recognized image
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>

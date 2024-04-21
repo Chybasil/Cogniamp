@@ -1,0 +1,17 @@
+{
+  "adult": {
+    "isAdultContent": false,
+    "isRacyContent": false,
+    "isGoryContent": false,
+    "adultScore": 0.0012410159688442945,
+    "racyScore": 0.002401605946943164,
+    "goreScore": 0.0007562096579931676
+  },
+  "requestId": "7a03b010-af9e-4daa-be49-aafab4332cf3",
+  "metadata": {
+    "width": 1300,
+    "height": 1129,
+    "format": "Jpeg"
+  },
+  "modelVersion": "2021-05-01"
+}
